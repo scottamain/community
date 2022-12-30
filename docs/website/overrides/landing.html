@@ -9,6 +9,7 @@
 {% block styles %}
   {{ super() }}
   <style>
+    /* Overrides */
     .md-header__topic {
       opacity: 0;
       font-weight: 700;
@@ -25,42 +26,72 @@
     }
     .md-content h1 {
       position: absolute;
-      top: 125px;
+      top: 160px;
       visibility: hidden;
     }
-    .oxla-landing {
+    .md-content__inner {
+      margin: 0;
+      padding: 0;
+    }
+    .md-main__inner {
+      margin: 0;
+      max-width: 100%;
+    }
+    .md-content__inner:before {
+      height: 1px;
+    }
+
+    /* Reproduce "md-main__inner" width and margins */
+    .oxla-section {
       width: 100%;
+    }
+    .oxla-section.black {
       background: #000;
+      color: #fff;
     }
-    .oxla-banner-wrapper {
-      margin: 4rem auto 4rem auto;
-      min-height: 300px;
+    .oxla-section-inner {
+      margin: 0 auto;
+      padding: 3rem 0;
+      max-width: 61rem;
     }
+    .oxla-section:before {
+      content: "";
+      display: block;
+      height: 1px;
+    }
+    .oxla-section h2 {
+      margin: 3rem 0 0;
+    }
+    .oxla-section h2:first-of-type {
+      margin: 0;
+    }
+    .oxla-section h2+p {
+      margin: 1rem 0 2rem;
+    }
+
+    /* Hero banner */
     .oxla-banner {
-      display:flex;
-      gap: 80px;
-      margin: 0 0.8rem;
+      margin: 2rem 0.8rem;
     }
     .oxla-banner-left {
       display:flex;
       flex-direction: column;
-      flex-grow:2;
-    }
-    .oxla-banner-right {
-      flex-basis: 600px;
-      flex-grow:2;
+      gap: 2rem;
+      max-width: 35rem;
     }
     .oxla-banner .oxla-title {
       color: #ddd;
       font-weight: bold;
       font-size: 2rem;
+      margin: 0;
     }
     .oxla-banner .oxla-subtitle {
       color: #bbb;
       font-size: 0.9rem;
+      margin: 0;
     }
     .oxla-buttons {
-      margin: 20px 0 0;
+      margin: 0;
     }
     a.oxla-button {
       padding: 0px 18px;
@@ -74,30 +105,40 @@
       align-items: center;
       color:#fff;
     }
+    a.oxla-button .material-icon {
+      font-family: "Material Icons";
+      padding-left: .5rem;
+    }
     a.oxla-button:hover {
       border-color: #6fb7e1;
     }
-    .md-main .oxla-features-list ul {
+
+    /* Features grid */
+    .oxla-features,
+    .oxla-community {
+      margin: 0 0.8rem;
+    }
+    .md-main .oxla-features ul {
       display: flex;
       flex-wrap: wrap;
-      gap: 10%;
+      gap: 1.5rem;
       list-style-type: none;
       margin: 0;
     }
-    .md-main .oxla-features-list ul li {
-      flex-basis: 45%;
+    .md-main .oxla-features ul li {
+      flex-basis: 40%;
+      flex-grow: 1;
       position: relative;
-      margin: 0 0 40px;
+      margin: 0;
       padding: 10px 0 0 80px;
-      font-size: 0.8rem;
     }
-    .oxla-features-list li strong:first-of-type {
+    .oxla-features li strong:first-of-type {
       display: block;
       margin-bottom: 20px;
       color: #555;
       font-size: 1rem;
     }
-    .material-icon {
+    .oxla-features .material-icon {
       font-family: "Material Icons";
       color: #555;
       position: absolute;
@@ -106,6 +147,23 @@
       left: 0;
       font-size: 60px;
       line-height: 60px;
+    }
+
+    /* Community grid */
+    .md-main .oxla-community ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem 5%;
+      list-style-type: none;
+      margin: 2rem 0;
+    }
+    .md-main .oxla-community ul li {
+      flex-basis: 15%;
+      flex-grow: 1;
+      margin: 0;
+      padding: 1rem; /* remove for images */
+      border: 2px solid #fff; /* remove for images */
+      color:#fff;
     }
 
     @media screen and (max-width: 720px) {
@@ -117,16 +175,14 @@
         display: none;
       }
       .oxla-banner,
-      .md-main .oxla-features-list ul {
+      .md-main .oxla-features ul {
         flex-direction: column;
       }
-      .oxla-banner-right {
-        flex-basis: 40px;
+      .md-main .oxla-community ul {
+        gap: 2rem;
       }
-    }
-    @media screen and (min-width: 1220px) {
-      .oxla-banner-wrapper {
-        max-width: 61rem;
+      .md-main .oxla-community ul li {
+        flex-basis: 40%;
       }
     }
   </style>
@@ -135,20 +191,31 @@
 <!-- Sidebars (customized to add new HTML after the default "tabs") -->
 {% block tabs %}
   {{ super() }}
-  <section class="oxla-landing md-typeset">
-    <div class="oxla-banner-wrapper">
+  <section class="oxla-section black md-typeset">
+    <div class="oxla-section-inner">
       <div class="oxla-banner">
         <div class="oxla-banner-left">
           <h1 class="oxla-title">{{ page.meta.title }}</h1>
           <p class="oxla-subtitle">{{ page.meta.subtitle }}</p>
           <div class="oxla-buttons">
-            <a class="oxla-button" href="#">StableHLO</a>
-            <a class="oxla-button" href="#">XLA Compiler</a>
+            {% for button in page.meta.buttons %}
+            <a class="oxla-button" href="{{ button.href }}">{{ button.text }}</a>
+            {% endfor %}
           </div>
-        </div>
-        <div class="oxla-banner-right">
         </div>
       </div>
     </div>
   </section>
+{% endblock %}
+
+
+<!-- Page content -->
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <article class="md-content__inner md-typeset">
+      {% block content %}
+        {% include "partials/content.html" %}
+      {% endblock %}
+    </article>
+  </div>
 {% endblock %}

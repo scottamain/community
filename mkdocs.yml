@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: OpenXLA Project
+site_name: OpenXLA project
 
 repo_url: https://github.com/openxla/community
 repo_name: openxla/community
@@ -9,7 +9,7 @@ edit_uri: ""
 theme:
   name: material
   logo: website/assets/openxla-logo-white.svg
-  logo_alt: OpenXLA Project
+  logo_alt: OpenXLA project
   favicon: website/assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
@@ -26,6 +26,7 @@ extra_css:
   - website/stylesheets/openxla.css
 
 markdown_extensions:
+  - attr_list
   # Allow MD within HTML tags (requires "markdown" tag on outer HTML)
   - md_in_html
   # Enable code highlighting
