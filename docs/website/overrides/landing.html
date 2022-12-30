@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+<!-- Site title (customized to remove site_name) -->
+{% block htmltitle %}
+  <title>{{ page.meta.title }}</title>
+{% endblock %}
+
+<!-- Theme-related style sheets (customized for landing page) -->
+{% block styles %}
+  {{ super() }}
+  <style>
+    .md-header__topic {
+      opacity: 0;
+      font-weight: 700;
+    }
+    .md-header__button.md-icon {
+      display: none;
+    }
+    .md-header__button.md-logo {
+      display: initial;
+    }
+    .md-header__source {
+      display: initial;
+      width: 11.7rem;
+    }
+    .md-content h1 {
+      position: absolute;
+      top: 125px;
+      visibility: hidden;
+    }
+    .oxla-landing {
+      width: 100%;
+      background: #000;
+    }
+    .oxla-banner-wrapper {
+      margin: 4rem auto 4rem auto;
+      min-height: 300px;
+    }
+    .oxla-banner {
+      display:flex;
+      gap: 80px;
+      margin: 0 0.8rem;
+    }
+    .oxla-banner-left {
+      display:flex;
+      flex-direction: column;
+      flex-grow:2;
+    }
+    .oxla-banner-right {
+      flex-basis: 600px;
+      flex-grow:2;
+    }
+    .oxla-banner .oxla-title {
+      color: #ddd;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .oxla-banner .oxla-subtitle {
+      color: #bbb;
+      font-size: 0.9rem;
+    }
+    .oxla-buttons {
+      margin: 20px 0 0;
+    }
+    a.oxla-button {
+      padding: 0px 18px;
+      border-radius: 3px;
+      font-weight: bold;
+      font-size: .8rem;
+      border: 2px solid #fff;
+      margin-right: 16px;
+      display: inline-flex;
+      height: 40px;
+      align-items: center;
+      color:#fff;
+    }
+    a.oxla-button:hover {
+      border-color: #6fb7e1;
+    }
+    .md-main .oxla-features-list ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10%;
+      list-style-type: none;
+      margin: 0;
+    }
+    .md-main .oxla-features-list ul li {
+      flex-basis: 45%;
+      position: relative;
+      margin: 0 0 40px;
+      padding: 10px 0 0 80px;
+      font-size: 0.8rem;
+    }
+    .oxla-features-list li strong:first-of-type {
+      display: block;
+      margin-bottom: 20px;
+      color: #555;
+      font-size: 1rem;
+    }
+    .material-icon {
+      font-family: "Material Icons";
+      color: #555;
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      font-size: 60px;
+      line-height: 60px;
+    }
+
+    @media screen and (max-width: 720px) {
+      .md-header__source {
+        width: auto;
+        margin-right:10px;
+      }
+      .md-source__repository.md-source__repository--active {
+        display: none;
+      }
+      .oxla-banner,
+      .md-main .oxla-features-list ul {
+        flex-direction: column;
+      }
+      .oxla-banner-right {
+        flex-basis: 40px;
+      }
+    }
+    @media screen and (min-width: 1220px) {
+      .oxla-banner-wrapper {
+        max-width: 61rem;
+      }
+    }
+  </style>
+{% endblock %}
+
+<!-- Sidebars (customized to add new HTML after the default "tabs") -->
+{% block tabs %}
+  {{ super() }}
+  <section class="oxla-landing md-typeset">
+    <div class="oxla-banner-wrapper">
+      <div class="oxla-banner">
+        <div class="oxla-banner-left">
+          <h1 class="oxla-title">{{ page.meta.title }}</h1>
+          <p class="oxla-subtitle">{{ page.meta.subtitle }}</p>
+          <div class="oxla-buttons">
+            <a class="oxla-button" href="#">StableHLO</a>
+            <a class="oxla-button" href="#">XLA Compiler</a>
+          </div>
+        </div>
+        <div class="oxla-banner-right">
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
