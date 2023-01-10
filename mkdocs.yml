@@ -18,24 +18,17 @@ theme:
     text: Noto
     code: Noto Sans Mono
   custom_dir: docs/website/overrides
-  palette:
-    - scheme: default
-      primary: black
 
 extra_css:
   - website/stylesheets/openxla.css
 
 markdown_extensions:
-  - attr_list
-  # Allow MD within HTML tags (requires "markdown" tag on outer HTML)
-  - md_in_html
-  # Enable code highlighting
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-  - pymdownx.snippets:
-      check_paths: True
+  - attr_list               # Add attributes to elements with {} notation
+  - md_in_html              # Allow MD within HTML tags
+  - pymdownx.highlight      # Syntax highlighting for code blocks
+  - pymdownx.inlinehilite   # And inline code (just in case): `#!python range()`
+  - pymdownx.superfences    # Nesting code fences and custom fence formats
+  - pymdownx.snippets:      # Include files/snippets: --8<-- 'README.md'
+      check_paths: True     #   and fail the build if file not found
 
 plugins: [] # Empty plugins list merely to disable search
