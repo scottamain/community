@@ -7,6 +7,7 @@
 .md-header__button.md-icon {
   display: none;
 }
+
 .md-header__button.md-logo {
   display: initial;
 }
@@ -36,7 +37,7 @@
   width: 100%;
 }
 .oxla-section.black {
-  background: #000;
+  background: var(--md-primary-fg-color);
   color: #fff;
 }
 .oxla-section-inner {
@@ -70,13 +71,13 @@
   max-width: 35rem;
 }
 .oxla-banner .oxla-title {
-  color: #ddd;
+  color: #fff;
   font-weight: bold;
   font-size: 2rem;
   margin: 0;
 }
 .oxla-banner .oxla-subtitle {
-  color: #bbb;
+  color: #fff;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -100,7 +101,8 @@ a.oxla-button .material-icon {
   padding-left: .5rem;
 }
 a.oxla-button:hover {
-  border-color: #6fb7e1;
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
 }
 
 /* Features grid */
