@@ -1,19 +1,17 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 
-site_name: OpenXLA project
-
-repo_url: https://github.com/openxla/community
-repo_name: openxla/community
+site_name: OpenXLA Project
+repo_url: https://github.com/openxla
+repo_name: openxla
 edit_uri: ""
 
 theme:
   name: material
   logo: website/assets/openxla-logo-white.svg
-  logo_alt: OpenXLA project
+  logo_alt: OpenXLA Project
   favicon: website/assets/favicon.ico
   icon:
     repo: fontawesome/brands/github
-    edit: material/file-edit-outline
   font:
     text: Noto
     code: Noto Sans Mono
