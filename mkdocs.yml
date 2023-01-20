@@ -4,6 +4,17 @@ site_name: OpenXLA Project
 repo_url: https://github.com/openxla
 repo_name: github.com/openxla
 edit_uri: ""
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/openxla
+      name: OpenXLA on GitHub
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/PeWUTaecrA
+      name: OpenXLA Discord
+    - icon: fontawesome/solid/users
+      link: https://github.com/openxla/community#welcome-to-the-openxla-community
+      name: OpenXLA community info
 
 theme:
   name: material
