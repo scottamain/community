@@ -25,16 +25,16 @@ buttons:
 
 ## StableHLO
 
-An operator set spec that provides a shared abstraction for ML programs between
+An operation set spec that provides a shared abstraction for ML programs between
 different ML frameworks and compilers.
 
-+ <span class="material-icon">description</span>
-  **Portability**
++ <span class="material-icon">drafts</span>
+  **Portable**
   All major ML frameworks (JAX, PyTorch, TensorFlow) can produce models
-  represented in StableHLO.
+  in StableHLO.
 
-+ <span class="material-icon">history</span>
-  **Stability**
++ <span class="material-icon">more_time</span>
+  **Stable**
   StableHLO programs can be serialized into MLIR bytecode that provides
   long-term stability and backward-compatibility guarantees.
 
@@ -44,19 +44,19 @@ An ML compiler that optimizes models for high-performance execution across
 hardware platforms including GPUs, CPUs, and ML accelerators.
 
 + <span class="material-icon">terminal</span>
-  **Build anywhere**
+  **Builds anywhere**
   Build and compile your models optimally across leading ML frameworks such as TensorFlow, PyTorch, and JAX.
 
 + <span class="material-icon">speed</span>
-  **Scale your performance**
+  **Scales your performance**
   Maximize and scale performance through a wide range of production-tested optimization passes and automated partitioning for model parallelism.
 
 + <span class="material-icon">developer_board</span>
-  **Run anywhere**
+  **Runs anywhere**
   Run your models anywhere with support for all leading ML backends including GPUs, CPUs, and ML accelerators.
 
 + <span class="material-icon">home_repair_service</span>
-  **Simplify your tools**
+  **Simplifies your tools**
   Eliminate the complexity of managing diverse domain-specific compilers. OpenXLA leverages the power of MLIR to bring the best capabilities into a single compiler toolchain.
 
 ## IREE
@@ -70,7 +70,6 @@ Provides a reusable and extensible architecture, built from the ground up in MLI
 + <span class="material-icon">open_with</span>
   **Scalable**
   Scales up to meet the needs of datacenters and down to meet the constraints of mobile and embedded systems.
-
 
 </div>
 </div>
